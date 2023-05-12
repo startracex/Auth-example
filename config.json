@@ -1,0 +1,30 @@
+{
+  "port": "8080",
+  "env": "development",
+  "database": {
+    "mongodb": {
+      "uri": "mongodb://localhost:27017",
+      "instances": {
+        "login": [
+          "test",
+          "test"
+        ],
+        "register": [
+          "test",
+          "test"
+        ],
+        "user": [
+          "test",
+          "test"
+        ]
+      }
+    },
+    "redis": {
+      "uri": "redis://localhost:6379",
+      "instances": {
+        "codemap": 0,
+        "tokenmap": 1
+      }
+    }
+  }
+}
