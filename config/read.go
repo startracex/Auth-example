@@ -9,7 +9,7 @@ import (
 var Global config
 
 type config struct {
-	Port     string      `json:"port" yaml:"port"`
+	Port     string   `json:"port" yaml:"port"`
 	Env      string   `json:"env" yaml:"env"`
 	Database database `json:"database" yaml:"database"`
 }

@@ -5,16 +5,12 @@ import (
 	"main/config"
 )
 
-// code到map的映射连接实例
 var CodeMap = new(RedisInstance)
 
-// token到id的映射连接实例
 var TokenMap = new(RedisInstance)
 
-// 登录管理的数据库连接实例
 var LoginDatabase = new(MongoInstance)
 
-// 注册管理的数据库连接实例
 var RegisterDatabase = new(MongoInstance)
 
 var UserDatabase = new(MongoInstance)

@@ -17,6 +17,7 @@ func Login(c *gin.Context) {
 		return
 	}
 	toauth := authbind.ToAuth()
+	toauth.Password = utils.Sha1(toauth.Password)
 	data := toauth.UserLogin()
 	utils.SafeInfo(&data)
 	if len(data) == 0 {

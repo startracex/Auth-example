@@ -2,8 +2,8 @@ package db
 
 import (
 	"context"
-	"time"
 	"github.com/redis/go-redis/v9"
+	"time"
 )
 
 func Connect() *redis.Client {
@@ -27,12 +27,15 @@ func (r *RedisInstance) Connect(
 		DB:   db,
 	})
 }
+
 func (r *RedisInstance) Close() error {
 	return r.Client.Close()
 }
+
 func (r *RedisInstance) Get(key string) (string, error) {
 	return r.Client.Get(context.TODO(), key).Result()
 }
+
 func (r *RedisInstance) Set(key string, value any, expiration ...int) error {
 	var exp int
 	if len(expiration) > 0 {
@@ -40,6 +43,7 @@ func (r *RedisInstance) Set(key string, value any, expiration ...int) error {
 	}
 	return r.Client.Set(context.TODO(), key, value, time.Duration(exp)*time.Second).Err()
 }
+
 func (r *RedisInstance) Del(keys ...string) {
 	r.Client.Del(context.TODO(), keys...)
 }

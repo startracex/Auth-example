@@ -2,7 +2,6 @@ package auth
 
 import (
 	"main/db"
-
 	"go.mongodb.org/mongo-driver/bson"
 )
 
@@ -36,22 +35,7 @@ func (ba *BindAuth) ToAuth() Auth {
 	return auth
 }
 
-// 返回Auth的账户_id,如果没有则返回空
 func (a Auth) GetID() string {
 	return db.LoginDatabase.GetID(bson.M{"email": a.Email, "password": a.Password})
 }
 
-// 返回Auth的存在性
-func (a Auth) UserExist() bool {
-	return len(db.RegisterDatabase.Find(bson.M{"email": a.Email})) != 0
-}
-
-// 注册Auth到数据库
-func (a Auth) UserRegister() {
-	db.RegisterDatabase.Insert(bson.M{"email": a.Email, "password": a.Password})
-}
-
-// 返回Auth的账户信息
-func (a Auth) UserLogin() map[string]any {
-	return db.LoginDatabase.Find(bson.M{"email": a.Email, "password": a.Password})
-}

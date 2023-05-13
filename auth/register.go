@@ -1,6 +1,7 @@
 package auth
 
 import (
+	"main/utils"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,13 +16,14 @@ func Register(c *gin.Context) {
 		c.Abort()
 		return
 	}
-	to := authbind.ToAuth()
-	if to.UserExist() {
+	toauth := authbind.ToAuth()
+	toauth.Password = utils.Sha1(toauth.Password)
+	if toauth.UserExist() {
 		c.Status(409)
 		c.Abort()
 		return
 	} else {
-		to.UserRegister()
+		toauth.UserRegister()
 	}
 	c.Status(200)
 	c.Abort()

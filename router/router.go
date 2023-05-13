@@ -13,10 +13,12 @@ func Router() {
 	}
 	g := gin.New()
 	g.LoadHTMLFiles(WalkHtml()...)
+
 	RegisterRouter(g)
 	LoginRouter(g)
 	ApiRouter(g)
 	AuthRouter(g)
+	
 	g.Run(":" + config.Global.Port)
 }
 func WalkHtml() []string {
