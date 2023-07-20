@@ -1,0 +1,29 @@
+{
+  "name": "GAMES.STARTRACE",
+  "host": "127.0.0.1",
+  "port": "8000",
+  "env": "development",
+  "webkey": "_key_",
+  "allow": [
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5500"
+  ],
+  "database": {
+    "mongodb": {
+      "uri": "mongodb://127.0.0.1:27017",
+      "instances": {
+        "signdb": [
+          "test",
+          "test"
+        ]
+      }
+    },
+    "redis": {
+      "uri": "redis://127.0.0.1:6379",
+      "instances": {
+        "codemap": 0,
+        "tokenmap": 1
+      }
+    }
+  }
+}
