@@ -6,9 +6,11 @@
 
 Login action
 
+Return `json web token`
+
 Parameter:
 
- - Body: E-mail, password(SHA-1 encryption)
+ - Body: E-mail, password (SHA-1 encryption)
 
 ## Register
 
@@ -18,7 +20,7 @@ Register action
 
 Parameter:
 
- - Body: E-mail, password(SHA-1 encryption)
+ - Body: E-mail, password (SHA-1 encryption)
 
 ## Authorization
 
@@ -28,7 +30,9 @@ Return `authorization code`
 
 Parameter:
 
- - Body: E-mail, password(SHA-1 encryption)
+ - Header:
+
+   - Token: `json web token`
 
 ## Application programming interface
 
