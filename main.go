@@ -1,9 +1,9 @@
 package main
 
 import (
-	"main/conf"
-	"main/db"
-	"main/router"
+	"github.com/startracex/Auth-example/conf"
+	"github.com/startracex/Auth-example/db"
+	"github.com/startracex/Auth-example/router"
 )
 
 func main() {

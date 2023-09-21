@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"main/handler"
-	"main/middleware"
+	"github.com/startracex/Auth-example/handler"
+	mw "github.com/startracex/Auth-example/middleware"
 )
 
 func registerEntrance(g *gin.Engine) {

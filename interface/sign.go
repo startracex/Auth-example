@@ -1,9 +1,9 @@
 package intf
 
 import (
-	"main/utils"
-	"strings"
 	"github.com/gin-gonic/gin"
+	"github.com/startracex/Auth-example/utils"
+	"strings"
 )
 
 type SignInputD struct {

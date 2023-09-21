@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"main/api"
-	"main/middleware"
+	"github.com/startracex/Auth-example/handler/api"
+	mw "github.com/startracex/Auth-example/middleware"
 )
 
 func ApiRouter(e *gin.Engine) {

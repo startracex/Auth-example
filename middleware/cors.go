@@ -1,34 +1,35 @@
 package mw
 
 import (
-	"main/conf"
+	"github.com/gin-gonic/gin"
+	"github.com/startracex/Auth-example/conf"
 )
 
 // Allow cors: allowed in config
-func CorsSome(c *ctx) {
+func CorsSome(c *gin.Context) {
 	origin := c.Request.Header.Get("Origin")
 	for _, v := range conf.Global.Allow {
 		if v == origin {
 			CorsContext(c, origin)
 		}
 	}
-	c.Next()
+	//c.Next()
 }
 
 // Allow cors: *
-func CorsAll(c *ctx) {
+func CorsAll(c *gin.Context) {
 	CorsContext(c, "*")
 	c.Next()
 }
 
 // Cors for OPTIONS method
-func CorsOptions(c *ctx) {
+func CorsOptions(c *gin.Context) {
 	CorsContext(c, "*")
 	c.AbortWithStatus(200)
 }
 
 // Allow cors: allowed
-func CorsContext(c *ctx, allowed string) {
+func CorsContext(c *gin.Context, allowed string) {
 	c.Header("Access-Control-Allow-Origin", allowed)
 	c.Header("Access-Control-Allow-Headers", "Content-Type, AccessToken, Authorization, Token")
 	c.Header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")

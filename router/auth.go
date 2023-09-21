@@ -1,9 +1,9 @@
 package router
 
 import (
-	"main/handler"
-	mw "main/middleware"
 	"github.com/gin-gonic/gin"
+	"github.com/startracex/Auth-example/handler"
+	mw "github.com/startracex/Auth-example/middleware"
 )
 
 func AuthRouter(g *gin.Engine) {

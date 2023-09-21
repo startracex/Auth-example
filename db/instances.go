@@ -1,7 +1,7 @@
 package db
 
 import (
-	"main/conf"
+	"github.com/startracex/Auth-example/conf"
 )
 
 var CodeMap = new(RedisInstance)

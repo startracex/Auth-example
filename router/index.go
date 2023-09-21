@@ -2,9 +2,9 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"main/conf"
-	"main/middleware"
-	"main/utils/fs"
+	"github.com/startracex/Auth-example/conf"
+	mw "github.com/startracex/Auth-example/middleware"
+	"github.com/startracex/Auth-example/utils/fs"
 )
 
 func Entrance() {
@@ -18,7 +18,9 @@ func Entrance() {
 
 	// Load html
 	g.LoadHTMLFiles(fs.WalkExt("view", "html")...)
-
+	g.GET("/", func(context *gin.Context) {
+		context.HTML(200, "index.html", nil)
+	})
 	registerEntrance(g)
 	loginEntrance(g)
 	ApiRouter(g)

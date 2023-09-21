@@ -1,18 +1,14 @@
 package mw
 
 import (
-	"main/interface"
 	"github.com/gin-gonic/gin"
+	intf "github.com/startracex/Auth-example/interface"
 )
 
 // Verify validity, set "input" in context
-func VerifyValidity(c *ctx) {
+func VerifyValidity(c *gin.Context) {
 	input, err := intf.ContextSignInput(c)
 	if err != nil {
-		c.JSON(400, gin.H{"error": err.Error()})
-		return
-	}
-	if input.Email == "" || input.Password == "" {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}

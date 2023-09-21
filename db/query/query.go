@@ -1,8 +1,8 @@
 package query
 
 import (
-	"main/db"
-	"main/interface"
+	"github.com/startracex/Auth-example/db"
+	intf "github.com/startracex/Auth-example/interface"
 )
 
 type A = map[string]any

@@ -19,7 +19,7 @@
       }
     },
     "redis": {
-      "uri": "redis://127.0.0.1:6379",
+      "uri": "127.0.0.1:6379",
       "instances": {
         "codemap": 0,
         "tokenmap": 1

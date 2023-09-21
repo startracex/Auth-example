@@ -2,7 +2,7 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
-	"main/db"
+	"github.com/startracex/Auth-example/db"
 )
 
 // Feedback token for user id

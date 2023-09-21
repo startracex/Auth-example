@@ -1,24 +1,22 @@
 package handler
 
 import (
-	"fmt"
-	"main/conf"
-	"main/db/query"
-	"main/interface"
-	"main/utils/jwt"
+	"github.com/startracex/Auth-example/conf"
+	"github.com/startracex/Auth-example/db/query"
+	intf "github.com/startracex/Auth-example/interface"
+	"github.com/startracex/Auth-example/utils/jwt"
 
 	"github.com/gin-gonic/gin"
 )
 
 func Login(c *gin.Context) {
 	input := c.MustGet("input").(intf.SignInput)
-	fmt.Println("Mustget input:", input)
 	data := query.QueryUser(query.A{"email": input.Email, "password": input.Password})
 	if data == nil {
 		c.JSON(400, gin.H{"error": "email or password error"})
 		return
 	}
-	claims := jwt.Map(data)
+	claims := jwt.JWT(data)
 	// json web token
 	token, err := jwt.Sign256(claims, conf.Global.Webkey)
 	if err != nil {
