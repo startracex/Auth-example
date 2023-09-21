@@ -13,13 +13,11 @@ func CorsSome(c *gin.Context) {
 			CorsContext(c, origin)
 		}
 	}
-	//c.Next()
 }
 
 // Allow cors: *
 func CorsAll(c *gin.Context) {
 	CorsContext(c, "*")
-	c.Next()
 }
 
 // Cors for OPTIONS method
